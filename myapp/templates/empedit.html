@@ -1,0 +1,78 @@
+{% load static %}
+
+
+<html>
+
+<head>
+    <title>Edit Your Informations Here</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</head>
+
+<body>
+    <!-- This Is container -->
+    <div class="container">
+        <form action="{% url 'regsave' %}" method="post">
+            {% csrf_token %}
+            <div class="row border border-dark shadow shadow-4 rounded rounded-4 mx-auto"
+                style="background-color: rgb(216, 240, 177);">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h2 class="fw-bold mt-3 border ">EDIT FORM</h2>
+                        </div>
+                    </div>
+                    <div class="row shadow my-4 p-2 rounded-4 rounded" style="background-color: rgb(223, 245, 143) ;">
+                        <div class="col-sm-6">
+                            <p class="fw-bold">Enter Your ID: </p>
+                            <input type="text" name="empid" value="{{sv.empid}}"
+                                class="form-control border border-dark rounded-0" readonly>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="fw-bold">Enter Your Name: </p>
+                            <input type="text" name="empname" value="{{sv.empname}}"
+                                class="form-control border border-dark rounded-0">
+                        </div>
+                    </div>
+                    <div class="row shadow my-4 p-2 rounded rounded-4" style="background-color: rgb(223, 245, 143) ;">
+                        <div class="col-sm-6">
+                            <p class="fw-bold">Enter Your Department: </p>
+                            <input type="text" name="department" value="{{sv.department}}"
+                                class="form-control border border-dark rounded-0" readonly>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="fw-bold">Enter Your Designation: </p>
+                            <input type="text" name="designation" value="{{sv.designation}}"
+                                class="form-control border border-dark rounded-0">
+                        </div>
+                    </div>
+                    <div class="row shadow my-4 p-1 rounded rounded-4" style="background-color: rgb(223, 245, 143);">
+                        <div class="col-sm-12 p-4 text-center">
+                            <span class="fw-bold">Enter Your Salary: </span>
+                            <input type="number" name="salary" value="{{sv.salary}}"
+                                class=" border border-dark rounded-0" readonly>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-sm-12 text-center mt-3 mb-3">
+                            <input type="submit" value="Save" class="btn btn-outline-primary">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- This Is container -->
+    <br><br><br><br>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="copyright text-center pt-3" style="color: black">
+                <p>© All rights reserved.Crafted by
+                    <a href="#" style="text-decoration: none;">Yash Varshney</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

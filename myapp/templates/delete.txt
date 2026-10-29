@@ -1,0 +1,32 @@
+if you want to make an delete button in your template of this project then you should need to take some steps
+1. in Index.html
+
+    <th>Delete</th>
+    
+    <td>
+    	<a href="{% url 'delemp' id=e.empid %}">
+    		<button type="button" class="btn btn-danger btn-sm">Delete</button>
+    	</a>
+    </td>
+
+2. in views.py
+
+    from django.shortcuts import render,redirect
+    from . models import Employee
+    from django.contrib import messages
+
+    def delemp(request,id):
+        emp=Employee.objects.get(empid=id)
+        emp.delete()
+        return redirect('index')
+
+3. in urls.py
+
+    from django.contrib import admin
+    from django.urls import path
+    from myapp import views
+    
+    urlpatterns = [
+        path('delemp/<id>',views.delemp,name="delemp"),
+    ]
+    
